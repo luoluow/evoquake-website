@@ -1,0 +1,82 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+import { SITE } from "../consts";
+
+const layers = [
+  {
+    name: "Runtime",
+    tag: "Execution",
+    body: "A durable execution layer for agents — persistent memory, tool calling, and orchestration of multi-step work that survives restarts and runs for hours, not seconds.",
+    points: ["Stateful, resumable agent loops", "Pluggable tools & model providers", "Concurrency and scheduling built in"],
+  },
+  {
+    name: "Control",
+    tag: "Trust",
+    body: "Everything you need to ship agents you can stand behind: evaluation harnesses, tracing, and policy guardrails that catch failures before your users do.",
+    points: ["End-to-end tracing & observability", "Offline + online evaluation", "Guardrails and approval gates"],
+  },
+  {
+    name: "Surfaces",
+    tag: "People",
+    body: "Human-first interfaces that put agentic capability where life happens — clear, calm, and usable by people who never want to see a prompt.",
+    points: ["Conversational & ambient UX", "Transparent agent reasoning", "Consumer-grade polish"],
+  },
+];
+---
+
+<Layout title="Product" description="The EvoQuake platform: a runtime, control plane, and human-first surfaces for trustworthy agents.">
+  <Section
+    eyebrow="The platform"
+    title="One stack, from runtime to the people it serves"
+    lead="EvoQuake is built in three layers — each useful on its own, stronger together."
+  >
+    <div class="space-y-4">
+      {
+        layers.map((l, i) => (
+          <article class="card sm:flex sm:items-start sm:gap-8">
+            <div class="flex items-center gap-4 sm:w-48 sm:shrink-0">
+              <span class="font-mono text-sm text-[--color-faint]">
+                0{i + 1}
+              </span>
+              <div>
+                <h3 class="text-lg font-semibold">{l.name}</h3>
+                <span class="eyebrow">{l.tag}</span>
+              </div>
+            </div>
+            <div class="mt-4 sm:mt-0">
+              <p class="text-[--color-muted]">{l.body}</p>
+              <ul class="mt-4 grid gap-2 sm:grid-cols-3">
+                {l.points.map((p) => (
+                  <li class="flex items-start gap-2 text-sm">
+                    <span class="mt-1 text-[--color-accent]" aria-hidden="true">
+                      ▸
+                    </span>
+                    <span class="text-[--color-fg]">{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section>
+    <div
+      class="rounded-2xl border border-[--color-border] bg-[--color-surface] p-8 text-center sm:p-12"
+    >
+      <h2 class="text-2xl font-semibold tracking-tight">
+        Building with agents? Let's talk.
+      </h2>
+      <p class="mx-auto mt-3 max-w-md text-[--color-muted]">
+        We're partnering with early teams shaping how agentic infrastructure
+        gets used in the real world.
+      </p>
+      <a href={`mailto:${SITE.email}`} class="btn-primary mt-7">
+        Reach out →
+      </a>
+    </div>
+  </Section>
+</Layout>

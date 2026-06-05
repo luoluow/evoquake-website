@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Section from "../../components/Section.astro";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+---
+
+<Layout title="Blog" description="Notes on agentic infrastructure, reliability, and building agents people can trust.">
+  <Section
+    eyebrow="Blog"
+    title="Notes from the build"
+    lead="Thinking on agentic infrastructure, reliability, and the road to agents people can trust."
+  >
+    {
+      posts.length === 0 ? (
+        <p class="text-[--color-muted]">No posts yet — check back soon.</p>
+      ) : (
+        <ul class="divide-y divide-[--color-border] border-t border-[--color-border]">
+          {posts.map((post) => (
+            <li>
+              <a
+                href={`/blog/${post.id}`}
+                class="group flex flex-col gap-1 py-6 transition-colors sm:flex-row sm:items-baseline sm:gap-6"
+              >
+                <time
+                  datetime={post.data.pubDate.toISOString()}
+                  class="font-mono text-xs text-[--color-faint] sm:w-28 sm:shrink-0"
+                >
+                  {fmt(post.data.pubDate)}
+                </time>
+                <div>
+                  <h2 class="font-medium text-[--color-fg] group-hover:text-[--color-accent]">
+                    {post.data.title}
+                  </h2>
+                  <p class="mt-1 text-sm text-[--color-muted]">
+                    {post.data.description}
+                  </p>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </Section>
+</Layout>

@@ -1,0 +1,67 @@
+---
+import { NAV, SITE } from "../consts";
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === "/" ? path === "/" : path.startsWith(href);
+---
+
+<header
+  class="sticky top-0 z-50 border-b border-[--color-border] bg-[--color-bg]/80 backdrop-blur-md"
+>
+  <nav class="container-x flex h-16 items-center justify-between">
+    <a href="/" class="flex items-center" aria-label={`${SITE.name} home`}>
+      <img
+        src="/evoquake_logo.svg"
+        alt={`${SITE.name} — ${SITE.tagline}`}
+        width="500"
+        height="140"
+        class="h-8 w-auto"
+      />
+    </a>
+
+    <div class="hidden items-center gap-1 md:flex">
+      {
+        NAV.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              "rounded-md px-3 py-2 text-sm transition-colors",
+              isActive(item.href)
+                ? "text-[--color-accent]"
+                : "text-[--color-muted] hover:text-[--color-fg]",
+            ]}
+            aria-current={isActive(item.href) ? "page" : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </div>
+
+    <a href="/contact" class="btn-primary hidden sm:inline-flex">Get in touch</a>
+
+    <!-- Mobile menu (CSS-only via <details>) -->
+    <details class="relative md:hidden">
+      <summary
+        class="grid h-9 w-9 cursor-pointer list-none place-items-center rounded-md border border-[--color-border] text-[--color-fg] [&::-webkit-details-marker]:hidden"
+        aria-label="Toggle menu"
+      >
+        ☰
+      </summary>
+      <div
+        class="absolute right-0 mt-2 w-44 rounded-lg border border-[--color-border] bg-[--color-surface] p-1 shadow-xl"
+      >
+        {
+          NAV.map((item) => (
+            <a
+              href={item.href}
+              class="block rounded-md px-3 py-2 text-sm text-[--color-muted] hover:bg-[--color-surface-2] hover:text-[--color-fg]"
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </div>
+    </details>
+  </nav>
+</header>
