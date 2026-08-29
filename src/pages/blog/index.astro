@@ -19,9 +19,9 @@ const fmt = (d: Date) =>
   >
     {
       posts.length === 0 ? (
-        <p class="text-[--color-muted]">No posts yet — check back soon.</p>
+        <p class="text-(--color-muted)">No posts yet — check back soon.</p>
       ) : (
-        <ul class="divide-y divide-[--color-border] border-t border-[--color-border]">
+        <ul class="divide-y divide-(--color-border) border-t border-(--color-border)">
           {posts.map((post) => (
             <li>
               <a
@@ -30,15 +30,15 @@ const fmt = (d: Date) =>
               >
                 <time
                   datetime={post.data.pubDate.toISOString()}
-                  class="font-mono text-xs text-[--color-faint] sm:w-28 sm:shrink-0"
+                  class="font-mono text-xs text-(--color-faint) sm:w-28 sm:shrink-0"
                 >
                   {fmt(post.data.pubDate)}
                 </time>
                 <div>
-                  <h2 class="font-medium text-[--color-fg] group-hover:text-[--color-accent]">
+                  <h2 class="font-medium text-(--color-fg) group-hover:text-(--color-accent)">
                     {post.data.title}
                   </h2>
-                  <p class="mt-1 text-sm text-[--color-muted]">
+                  <p class="mt-1 text-sm text-(--color-muted)">
                     {post.data.description}
                   </p>
                 </div>

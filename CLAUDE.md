@@ -27,9 +27,9 @@ There is no test suite or linter configured. `npm run build` is the de-facto che
 - **`src/layouts/Layout.astro`** is the single page shell: `<head>` meta/OG tags, fonts, `Header`, `Footer`, and a `<slot>`. Every page wraps its content in `<Layout title=... description=...>`.
 - **`src/components/Section.astro`** is the standard content block (eyebrow + title + lead + slot). Reuse it for page sections to keep spacing/typography consistent.
 - **Design tokens are CSS variables** defined in `src/styles/global.css` under `@theme` (colors like `--color-bg`, `--color-accent`, fonts). Reusable component classes (`.btn-primary`, `.btn-ghost`, `.card`, `.eyebrow`, `.container-x`) are defined in the same file under `@layer components`. Re-theme the whole site by editing the tokens.
-  - **Tailwind v4 gotcha:** `@apply` cannot reference another custom class. To share base styles, list selectors together (see how `.btn-primary`/`.btn-ghost` group with `.btn`) rather than `@apply btn`.
+  - **Tailwind v4 gotcha:** CSS-variable arbitrary values use parens — `bg-(--color-accent)`, not `bg-[--color-accent]` (the bracket form compiles to an invalid literal and is silently ignored). Also `@apply` cannot reference another custom class. To share base styles, list selectors together (see how `.btn-primary`/`.btn-ghost` group with `.btn`) rather than `@apply btn`.
 - **Blog uses Astro content collections.** Schema is in `src/content.config.ts`; posts are Markdown in `src/content/blog/*.md` with frontmatter (`title`, `description`, `pubDate`, `author`, optional `draft`). `src/pages/blog/index.astro` lists them; `src/pages/blog/[...slug].astro` renders one. To add a post, drop a new `.md` file in — no code changes needed. The post URL slug is the filename.
-- **Contact is mailto-only** — no backend/form service. The contact page and CTAs build `mailto:` links (with prefilled subjects) from `SITE.email`. The "Join the beta" CTA is a mailto with subject "Join the Kuyun beta"; "Open Kuyun" links to `KUYUN.url`.
+- **Contact is mailto-only** — no backend/form service. The contact page and CTAs build `mailto:` links (with prefilled subjects) from `SITE.email`. Beta sign-up is NOT handled here — all "Open Kuyun"/"Go to Kuyun" CTAs link to `KUYUN.url`, where users join the waitlist.
 
 ## Assets
 

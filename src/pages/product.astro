@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
-import { SITE, KUYUN } from "../consts";
+import { KUYUN } from "../consts";
 
 const features = [
   {
@@ -30,7 +30,6 @@ const features = [
   },
 ];
 
-const waitlist = `mailto:${SITE.email}?subject=${encodeURIComponent("Join the Kuyun beta")}`;
 ---
 
 <Layout title="Kuyun" description="Kuyun is EvoQuake's personal AI assistant: frontier AI that remembers you, explains itself, and keeps you in control of your data.">
@@ -41,14 +40,13 @@ const waitlist = `mailto:${SITE.email}?subject=${encodeURIComponent("Join the Ku
   >
     <div class="mb-10 flex flex-wrap gap-3">
       <a href={KUYUN.url} class="btn-primary">Open {KUYUN.name} →</a>
-      <a href={waitlist} class="btn-ghost">Join the beta</a>
     </div>
     <div class="space-y-4">
       {
         features.map((f, i) => (
           <article class="card sm:flex sm:items-start sm:gap-8">
             <div class="flex items-center gap-4 sm:w-48 sm:shrink-0">
-              <span class="font-mono text-sm text-[--color-faint]">
+              <span class="font-mono text-sm text-(--color-faint)">
                 0{i + 1}
               </span>
               <div>
@@ -57,14 +55,14 @@ const waitlist = `mailto:${SITE.email}?subject=${encodeURIComponent("Join the Ku
               </div>
             </div>
             <div class="mt-4 sm:mt-0">
-              <p class="text-[--color-muted]">{f.body}</p>
+              <p class="text-(--color-muted)">{f.body}</p>
               <ul class="mt-4 grid gap-2 sm:grid-cols-3">
                 {f.points.map((p) => (
                   <li class="flex items-start gap-2 text-sm">
-                    <span class="mt-1 text-[--color-accent]" aria-hidden="true">
+                    <span class="mt-1 text-(--color-accent)" aria-hidden="true">
                       ▸
                     </span>
-                    <span class="text-[--color-fg]">{p}</span>
+                    <span class="text-(--color-fg)">{p}</span>
                   </li>
                 ))}
               </ul>
@@ -77,18 +75,17 @@ const waitlist = `mailto:${SITE.email}?subject=${encodeURIComponent("Join the Ku
 
   <Section>
     <div
-      class="rounded-2xl border border-[--color-border] bg-[--color-surface] p-8 text-center sm:p-12"
+      class="rounded-2xl border border-(--color-border) bg-(--color-surface) p-8 text-center sm:p-12"
     >
       <h2 class="text-2xl font-semibold tracking-tight">
         {KUYUN.name} is in private beta.
       </h2>
-      <p class="mx-auto mt-3 max-w-md text-[--color-muted]">
-        We're inviting people in gradually. Tell us a little about yourself and
-        how you'd use it, and we'll be in touch.
+      <p class="mx-auto mt-3 max-w-md text-(--color-muted)">
+        We're inviting people in gradually. Head over to {KUYUN.name} to join
+        the waiting list — or sign in if you already have access.
       </p>
       <div class="mt-7 flex flex-wrap justify-center gap-3">
-        <a href={waitlist} class="btn-primary">Request an invite →</a>
-        <a href={KUYUN.url} class="btn-ghost">Already have access? Open {KUYUN.name}</a>
+        <a href={KUYUN.url} class="btn-primary">Go to {KUYUN.name} →</a>
       </div>
     </div>
   </Section>
