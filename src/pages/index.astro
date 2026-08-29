@@ -1,31 +1,33 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
-import { SITE } from "../consts";
+import { SITE, KUYUN } from "../consts";
 
 const pillars = [
   {
     icon: "◇",
-    title: "Agent runtime",
-    body: "A dependable runtime for long-running agents — memory, tools, and orchestration that hold up outside the demo.",
+    title: "It remembers you",
+    body: "Tell it once. Your preferences, projects, and context carry across every conversation — no re-explaining yourself.",
   },
   {
     icon: "◷",
-    title: "Reliability & guardrails",
-    body: "Evaluation, observability, and guardrails so agents stay correct, predictable, and safe to trust with real tasks.",
+    title: "It explains itself",
+    body: "Every answer comes with its reasoning, and every action leaves an inspectable record. You can always see why it did what it did.",
   },
   {
     icon: "⌁",
-    title: "Everyday interfaces",
-    body: "Human-first surfaces that bring agentic capability into daily life without asking people to think like engineers.",
+    title: "You're in control",
+    body: "See everything Kuyun knows about you, edit it, or delete it for good — conversations, memories, and your account included.",
   },
 ];
 
 const stats = [
-  { value: "Agent-native", label: "Built for autonomy, not bolted on" },
-  { value: "Open by design", label: "Composable, inspectable infrastructure" },
-  { value: "Human-first", label: "Capability people actually feel" },
+  { value: "Frontier models", label: "The best AI available, for everyone" },
+  { value: "Yours to shape", label: "Feedback changes how it behaves — permanently" },
+  { value: "Nothing hidden", label: "Inspect, edit, or erase what it knows" },
 ];
+
+const waitlist = `mailto:${SITE.email}?subject=${encodeURIComponent("Join the Kuyun beta")}`;
 ---
 
 <Layout>
@@ -34,20 +36,22 @@ const stats = [
     <p class="eyebrow mb-5">
       <span class="inline-block h-1.5 w-1.5 rounded-full bg-[--color-accent]"
       ></span>
-      {SITE.legalName}
+      {SITE.legalName} · {KUYUN.name} — {KUYUN.status}
     </p>
     <h1
       class="max-w-3xl text-4xl font-semibold leading-[1.1] tracking-tight sm:text-6xl"
     >
-      AI & agentic infrastructure to
-      <span class="text-gradient">empower everyday life</span>.
+      Frontier AI for
+      <span class="text-gradient">everyone</span>.
     </h1>
     <p class="mt-6 max-w-xl text-lg text-[--color-muted]">
-      {SITE.description}
+      Meet {KUYUN.name}: a personal AI assistant that remembers you, explains
+      itself, and never keeps anything about you that you can't see, change, or
+      delete.
     </p>
     <div class="mt-9 flex flex-wrap gap-3">
-      <a href="/contact" class="btn-ghost">Get in touch</a>
-      <a href="/product" class="btn-ghost">Explore the platform</a>
+      <a href={KUYUN.url} class="btn-primary">Open {KUYUN.name} →</a>
+      <a href={waitlist} class="btn-ghost">Join the beta</a>
     </div>
 
     <dl class="mt-16 grid gap-px overflow-hidden rounded-xl border border-[--color-border] bg-[--color-border] sm:grid-cols-3">
@@ -64,9 +68,9 @@ const stats = [
 
   <!-- Pillars -->
   <Section
-    eyebrow="What we build"
-    title="Infrastructure for agents that earn trust"
-    lead="The hard part of agents isn't the demo — it's making them reliable, observable, and genuinely useful day after day. That's what we build."
+    eyebrow="Why Kuyun"
+    title="An assistant that's actually yours"
+    lead="Most AI assistants treat every conversation as a stranger and every decision as a black box. Kuyun is built the other way around."
   >
     <div class="grid gap-5 sm:grid-cols-3">
       {
@@ -93,13 +97,13 @@ const stats = [
     >
       <p class="eyebrow mb-4">Our thesis</p>
       <p class="max-w-3xl text-xl font-medium leading-snug sm:text-2xl">
-        The next platform shift isn't another app — it's capable agents working
-        on your behalf. Getting there needs infrastructure built for autonomy
-        from the ground up. We're building it.
+        The most capable AI in the world shouldn't be reserved for experts, and
+        it shouldn't be a black box. Everyone deserves an assistant that knows
+        them, shows its work, and answers to them — not the other way around.
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
+        <a href="/product" class="btn-ghost">Explore {KUYUN.name}</a>
         <a href="/about" class="btn-ghost">Why EvoQuake</a>
-        <a href={`mailto:${SITE.email}`} class="btn-ghost">Work with us</a>
       </div>
     </div>
   </Section>

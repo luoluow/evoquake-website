@@ -1,11 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
-import { SITE } from "../consts";
+import { SITE, KUYUN } from "../consts";
 
 const reasons = [
+  { label: "Join the Kuyun beta", subject: "Join the Kuyun beta" },
+  { label: "Feedback", subject: "Kuyun feedback" },
   { label: "Partnerships", subject: "Partnership inquiry" },
-  { label: "Careers", subject: "Joining EvoQuake" },
   { label: "Press", subject: "Press inquiry" },
   { label: "Anything else", subject: "Hello EvoQuake" },
 ];
@@ -14,11 +15,11 @@ const mailto = (subject: string) =>
   `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}`;
 ---
 
-<Layout title="Contact" description="Get in touch with EvoQuake.">
+<Layout title="Contact" description="Get in touch with EvoQuake or request access to the Kuyun beta.">
   <Section
     eyebrow="Contact"
     title="Let's talk"
-    lead="Building with agents, exploring a partnership, or just curious what we're up to? We'd love to hear from you."
+    lead={`Want in on the ${KUYUN.name} beta, have feedback, or just curious what we're up to? We'd love to hear from you.`}
   >
     <div class="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
       <div class="card">
@@ -50,6 +51,10 @@ const mailto = (subject: string) =>
         <a href={mailto("Hello EvoQuake")} class="btn-primary mt-6 self-start">
           Compose an email →
         </a>
+        <p class="mt-6 text-sm text-[--color-faint]">
+          Already have access?
+          <a href={KUYUN.url} class="text-[--color-accent] hover:underline">Open {KUYUN.name} →</a>
+        </p>
       </div>
     </div>
   </Section>

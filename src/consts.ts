@@ -3,15 +3,22 @@ export const SITE = {
   name: "EvoQuake",
   legalName: "EvoQuake CO.",
   email: "luo@evoquake.com",
-  tagline: "AI & agentic infrastructure to empower everyday life.",
+  tagline: "Frontier AI for everyone.",
   description:
-    "EvoQuake builds AI and agentic infrastructure that puts capable, trustworthy agents to work in people's daily lives.",
+    "EvoQuake makes Kuyun — a personal AI assistant that remembers you, explains itself, and puts you in control of what it knows.",
   url: "https://evoquake.com",
+} as const;
+
+export const KUYUN = {
+  name: "Kuyun",
+  url: "https://kuyun.evoquake.com/",
+  appUrl: "https://kuyun.evoquake.com/app/",
+  status: "Private beta",
 } as const;
 
 export const NAV = [
   { href: "/", label: "Home" },
-  { href: "/product", label: "Product" },
+  { href: "/product", label: "Kuyun" },
   { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
