@@ -3,37 +3,79 @@ import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
 import { SITE } from "../consts";
 
-const layers = [
+const kinds = [
   {
-    name: "Runtime",
-    tag: "Execution",
-    body: "A durable execution layer for agents — persistent memory, tool calling, and orchestration of multi-step work that survives restarts and runs for hours, not seconds.",
-    points: ["Stateful, resumable agent loops", "Pluggable tools & model providers", "Concurrency and scheduling built in"],
+    name: "Course",
+    tag: "Learn",
+    body: "Say what to teach and who for. Kuyun writes the course lesson by lesson with practice built in, and every learner who opens it gets a study partner that teaches a step at a time, checks each answer and keeps their place.",
+    points: ["Blanks, quizzes, flash cards", "Python written and run in the lesson", "Language courses: listen, then say it back"],
   },
   {
-    name: "Control",
-    tag: "Trust",
-    body: "Everything you need to ship agents you can stand behind: evaluation harnesses, tracing, and policy guardrails that catch failures before your users do.",
-    points: ["End-to-end tracing & observability", "Offline + online evaluation", "Guardrails and approval gates"],
+    name: "Book",
+    tag: "Read & listen",
+    body: "A book built once and kept: chapters to read page by page or to listen to, and a reading companion that answers questions about the book — without spoilers.",
+    points: ["Read aloud, chapter by chapter", "A companion that answers, no spoilers", "A growing shelf of classics, free"],
   },
   {
-    name: "Surfaces",
-    tag: "People",
-    body: "Human-first interfaces that put agentic capability where life happens — clear, calm, and usable by people who never want to see a prompt.",
-    points: ["Conversational & ambient UX", "Transparent agent reasoning", "Consumer-grade polish"],
+    name: "Library",
+    tag: "Collect & ask",
+    body: "A collection with a purpose — your own files, papers, the works Kuyun made — and a librarian who answers across all of it and says which page the answer came from.",
+    points: ["Your files, papers and works on one shelf", "One librarian for the whole collection", "Every answer names its page"],
+  },
+  {
+    name: "Briefing",
+    tag: "Follow",
+    body: "The same things looked up afresh every day at your hour and handed to you as a digest in your Home chat: a fare watch, a market briefing, the news on a subject you follow.",
+    points: ["Fresh each morning, with sources", "Lands in your Home chat", "Say what counts as news to you"],
+  },
+];
+
+const trust = [
+  {
+    title: "It shows its work",
+    body: "Every answer has a why you can open, every project keeps an inspectable record of what it did, and a separate reviewer judges each step before it counts.",
+  },
+  {
+    title: "It knows itself",
+    body: "Ask Kuyun how its memory works and it answers from a written account of what it actually does — the same pages you can read.",
+  },
+  {
+    title: "Your data, plainly",
+    body: "Everything it learns about you is visible and editable on one page. There is a real delete-everything button. It never sells your content or uses it to advertise, and it never acts on the world without you.",
+  },
+  {
+    title: "Free every day",
+    body: "Every account has a free allowance that comes back each morning. Publishing a work earns you credit as people use it.",
   },
 ];
 ---
 
-<Layout title="Product" description="The EvoQuake platform: a runtime, control plane, and human-first surfaces for trustworthy agents.">
+<Layout title="Kuyun AI" description="Kuyun AI, by EvoQuake: courses with a study partner, books read aloud, libraries with a librarian, briefings every morning. It works while you are away, shows its work, and is free every day.">
+  <section class="container-x pt-20 pb-6 sm:pt-28">
+    <p class="eyebrow mb-5">The product</p>
+    <h1 class="max-w-3xl text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl">
+      Kuyun AI — say it once, and it is made.
+    </h1>
+    <p class="mt-6 max-w-xl text-lg text-[--color-muted]">
+      Kuyun (say “koo-yoon”) is a personal AI you talk to. It remembers you, it
+      works on things in the background while you are away, and it can always
+      show you why it did what it did. Whoever receives what you made gets a
+      companion of their own.
+    </p>
+    <div class="mt-9 flex flex-wrap gap-3">
+      <a href={SITE.kuyunSignup} class="btn-primary">Try it free</a>
+      <a href={SITE.kuyunDemo} class="btn-ghost">Watch the one-minute demo</a>
+    </div>
+  </section>
+
   <Section
-    eyebrow="The platform"
-    title="One stack, from runtime to the people it serves"
-    lead="EvoQuake is built in three layers — each useful on its own, stronger together."
+    eyebrow="Four kinds of work"
+    title="What you can ask for"
+    lead="You choose the kind when you start; Kuyun turns your sentence into a goal and a plan, asks the one or two things only you know, and gets to work."
   >
     <div class="space-y-4">
       {
-        layers.map((l, i) => (
+        kinds.map((l, i) => (
           <article class="card sm:flex sm:items-start sm:gap-8">
             <div class="flex items-center gap-4 sm:w-48 sm:shrink-0">
               <span class="font-mono text-sm text-[--color-faint]">
@@ -63,19 +105,38 @@ const layers = [
     </div>
   </Section>
 
+  <Section
+    eyebrow="Explore and publish"
+    title="Made once, shared with anyone"
+    lead="Explore is where people find what others have published — by topic, by maker or by language. What you open goes on your Shelf with your place kept. Publish your own work with a cover and it is there for anyone, and it earns you credit as people use it. Kuyun speaks English, 中文 and Español."
+  />
+
+  <Section eyebrow="Why trust it" title="Reliable, transparent, accountable — by design">
+    <div class="grid gap-5 sm:grid-cols-2">
+      {
+        trust.map((v) => (
+          <div class="card">
+            <h3 class="font-semibold">{v.title}</h3>
+            <p class="mt-2 text-sm text-[--color-muted]">{v.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
   <Section>
     <div
       class="rounded-2xl border border-[--color-border] bg-[--color-surface] p-8 text-center sm:p-12"
     >
       <h2 class="text-2xl font-semibold tracking-tight">
-        Building with agents? Let's talk.
+        Something to teach, read, collect or follow?
       </h2>
       <p class="mx-auto mt-3 max-w-md text-[--color-muted]">
-        We're partnering with early teams shaping how agentic infrastructure
-        gets used in the real world.
+        Kuyun is in beta and free every day. Ask it anything about itself — it
+        answers from the same handbook its people read.
       </p>
-      <a href={`mailto:${SITE.email}`} class="btn-primary mt-7">
-        Reach out →
+      <a href={SITE.kuyunSignup} class="btn-primary mt-7">
+        Start on Kuyun →
       </a>
     </div>
   </Section>

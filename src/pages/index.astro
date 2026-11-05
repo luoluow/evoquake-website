@@ -3,28 +3,43 @@ import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
 import { SITE } from "../consts";
 
-const pillars = [
+const makes = [
   {
     icon: "◇",
-    title: "Agent runtime",
-    body: "A dependable runtime for long-running agents — memory, tools, and orchestration that hold up outside the demo.",
+    title: "Courses, with a study partner",
+    body: "Say what to teach and who for; Kuyun writes it lesson by lesson, with practice — blanks, quizzes, flash cards, Python you write and run in the lesson, and in a language course, lines you listen to and say back. Every learner gets a study partner that teaches a step at a time and checks their answers.",
   },
   {
     icon: "◷",
-    title: "Reliability & guardrails",
-    body: "Evaluation, observability, and guardrails so agents stay correct, predictable, and safe to trust with real tasks.",
+    title: "Books read aloud, libraries with a librarian",
+    body: "A book kept chapter by chapter, to read or to listen to, with a reading companion that answers without spoilers — a growing shelf of classics is already narrated, free. A library is a collection with a purpose, and a librarian who answers across all of it.",
   },
   {
     icon: "⌁",
-    title: "Everyday interfaces",
-    body: "Human-first surfaces that bring agentic capability into daily life without asking people to think like engineers.",
+    title: "Briefings, every morning",
+    body: "“Tell me when there is a good flight deal to Hawaii.” Kuyun looks the same things up afresh at your hour and hands you the day's digest — in your Home chat, with its sources.",
   },
 ];
 
-const stats = [
-  { value: "Agent-native", label: "Built for autonomy, not bolted on" },
-  { value: "Open by design", label: "Composable, inspectable infrastructure" },
-  { value: "Human-first", label: "Capability people actually feel" },
+const facts = [
+  { value: "Shows its work", label: "Every answer has a why you can open" },
+  { value: "Free every day", label: "An allowance that comes back each morning" },
+  { value: "Yours to shape", label: "Remembers you; see and edit what it believes" },
+];
+
+const layers = [
+  {
+    title: "Agent runtime",
+    body: "Long-running projects with a goal, a brief and a plan: memory, tools and orchestration that keep working between a person's visits.",
+  },
+  {
+    title: "Reliability & guardrails",
+    body: "A separate reviewer judges every step, every action is in an inspectable record, and nothing reaches the world without the person.",
+  },
+  {
+    title: "Everyday interfaces",
+    body: "A conversation, a page of files beside it, and a companion for whoever receives the work — no prompts to learn.",
+  },
 ];
 ---
 
@@ -39,20 +54,25 @@ const stats = [
     <h1
       class="max-w-3xl text-4xl font-semibold leading-[1.1] tracking-tight sm:text-6xl"
     >
-      AI & agentic infrastructure to
-      <span class="text-gradient">empower everyday life</span>.
+      Frontier AI for everyone:
+      <span class="text-gradient">Kuyun AI</span>.
     </h1>
     <p class="mt-6 max-w-xl text-lg text-[--color-muted]">
-      {SITE.description}
+      Say what you want to learn, make or follow, and Kuyun builds it while
+      you are away — a course with a study partner for every learner, a book
+      read aloud, a library with a librarian, a briefing every morning. It
+      shows its work, it is shaped by you, and there is a free allowance
+      every day.
     </p>
     <div class="mt-9 flex flex-wrap gap-3">
-      <a href="/contact" class="btn-ghost">Get in touch</a>
-      <a href="/product" class="btn-ghost">Explore the platform</a>
+      <a href={SITE.kuyunSignup} class="btn-primary">Try Kuyun free</a>
+      <a href="/product" class="btn-ghost">What it does</a>
+      <a href={SITE.kuyunDemo} class="btn-ghost">Watch the one-minute demo</a>
     </div>
 
     <dl class="mt-16 grid gap-px overflow-hidden rounded-xl border border-[--color-border] bg-[--color-border] sm:grid-cols-3">
       {
-        stats.map((s) => (
+        facts.map((s) => (
           <div class="bg-[--color-surface] p-6">
             <dt class="font-mono text-lg text-[--color-fg]">{s.value}</dt>
             <dd class="mt-1 text-sm text-[--color-faint]">{s.label}</dd>
@@ -62,15 +82,15 @@ const stats = [
     </dl>
   </section>
 
-  <!-- Pillars -->
+  <!-- What people make -->
   <Section
-    eyebrow="What we build"
-    title="Infrastructure for agents that earn trust"
-    lead="The hard part of agents isn't the demo — it's making them reliable, observable, and genuinely useful day after day. That's what we build."
+    eyebrow="What people make with Kuyun"
+    title="Work that continues between your visits"
+    lead="A project is a goal, a brief and a plan that Kuyun runs on its own and tells you when something has moved. These are the kinds people make most."
   >
     <div class="grid gap-5 sm:grid-cols-3">
       {
-        pillars.map((p) => (
+        makes.map((p) => (
           <div class="card">
             <div
               class="grid h-10 w-10 place-items-center rounded-lg bg-[--color-accent-dim] text-lg text-[--color-accent]"
@@ -84,6 +104,29 @@ const stats = [
         ))
       }
     </div>
+    <p class="mt-8 max-w-2xl text-[--color-muted]">
+      Publish a work with a cover and it is on <strong class="text-[--color-fg]">Explore</strong>
+      for anyone to find — by topic, by maker or by language — and it earns you
+      credit as people use it. Kuyun speaks English, 中文 and Español.
+    </p>
+  </Section>
+
+  <!-- Under the hood -->
+  <Section
+    eyebrow="Under the hood"
+    title="Infrastructure built for agents that earn trust"
+    lead="Kuyun runs on the platform EvoQuake builds: a runtime for long-running agents, a control layer that keeps them honest, and surfaces made for people."
+  >
+    <div class="grid gap-5 sm:grid-cols-3">
+      {
+        layers.map((l) => (
+          <div class="card">
+            <h3 class="font-semibold">{l.title}</h3>
+            <p class="mt-2 text-sm text-[--color-muted]">{l.body}</p>
+          </div>
+        ))
+      }
+    </div>
   </Section>
 
   <!-- Thesis CTA -->
@@ -93,11 +136,13 @@ const stats = [
     >
       <p class="eyebrow mb-4">Our thesis</p>
       <p class="max-w-3xl text-xl font-medium leading-snug sm:text-2xl">
-        The next platform shift isn't another app — it's capable agents working
-        on your behalf. Getting there needs infrastructure built for autonomy
-        from the ground up. We're building it.
+        The newest AI should not require blind faith. A capable agent that
+        works on your behalf has to explain every answer, keep a record you
+        can inspect, and be shaped by you — not the other way around. Kuyun is
+        that agent, and the infrastructure under it is what we build.
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
+        <a href={SITE.kuyunUrl} class="btn-primary">Open Kuyun</a>
         <a href="/about" class="btn-ghost">Why EvoQuake</a>
         <a href={`mailto:${SITE.email}`} class="btn-ghost">Work with us</a>
       </div>
