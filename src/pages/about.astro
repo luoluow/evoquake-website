@@ -25,7 +25,7 @@ const values = [
     title="Making agents dependable enough for everyday life"
     lead="EvoQuake CO. was founded by Michael Luo to close the gap between what agents can demo and what they can be trusted to do every day."
   >
-    <div class="prose-invert max-w-2xl space-y-4 text-[--color-muted]">
+    <div class="prose-invert max-w-2xl space-y-4 text-[var(--color-muted)]">
       <p>
         AI has crossed a threshold: models can now reason, use tools, and act.
         But capability isn't the same as dependability. Turning raw model
@@ -35,7 +35,7 @@ const values = [
       <p>
         That's the work. We build the layer between frontier models and the
         moments where they actually help someone get through their day — and
-        <a href="/product" class="text-[--color-accent]">Kuyun AI</a> is where
+        <a href="/product" class="text-[var(--color-accent)]">Kuyun AI</a> is where
         people meet it: courses, books, libraries and briefings made for them,
         shown with their work, free every day.
       </p>
@@ -44,7 +44,7 @@ const values = [
 
   <Section eyebrow="Founder" title="Michael Luo">
     <div class="card max-w-2xl">
-      <div class="space-y-4 text-[--color-muted]">
+      <div class="space-y-4 text-[var(--color-muted)]">
         <p>
           Michael founded EvoQuake after more than 15 years building the
           serving, data, and machine-learning infrastructure behind some of the
@@ -54,27 +54,27 @@ const values = [
         </p>
       </div>
       <dl
-        class="mt-6 grid gap-x-6 gap-y-3 border-t border-[--color-border] pt-6 text-sm sm:grid-cols-2"
+        class="mt-6 grid gap-x-6 gap-y-3 border-t border-[var(--color-border)] pt-6 text-sm sm:grid-cols-2"
       >
         <div>
-          <dt class="font-mono text-xs text-[--color-faint]">Previously</dt>
-          <dd class="text-[--color-fg]">Meta · Google / YouTube · Microsoft</dd>
+          <dt class="font-mono text-xs text-[var(--color-faint)]">Previously</dt>
+          <dd class="text-[var(--color-fg)]">Meta · Google / YouTube · Microsoft</dd>
         </div>
         <div>
-          <dt class="font-mono text-xs text-[--color-faint]">Focus</dt>
-          <dd class="text-[--color-fg]">
+          <dt class="font-mono text-xs text-[var(--color-faint)]">Focus</dt>
+          <dd class="text-[var(--color-fg)]">
             ML, data & recommendation infra at scale
           </dd>
         </div>
         <div>
-          <dt class="font-mono text-xs text-[--color-faint]">Education</dt>
-          <dd class="text-[--color-fg]">
+          <dt class="font-mono text-xs text-[var(--color-faint)]">Education</dt>
+          <dd class="text-[var(--color-fg)]">
             MBA, Old Dominion · B.S., Tsinghua University
           </dd>
         </div>
         <div>
-          <dt class="font-mono text-xs text-[--color-faint]">Based in</dt>
-          <dd class="text-[--color-fg]">Bay Area, California</dd>
+          <dt class="font-mono text-xs text-[var(--color-faint)]">Based in</dt>
+          <dd class="text-[var(--color-fg)]">Bay Area, California</dd>
         </div>
       </dl>
 
@@ -90,7 +90,7 @@ const values = [
         values.map((v) => (
           <div class="card">
             <h3 class="font-semibold">{v.title}</h3>
-            <p class="mt-2 text-sm text-[--color-muted]">{v.body}</p>
+            <p class="mt-2 text-sm text-[var(--color-muted)]">{v.body}</p>
           </div>
         ))
       }

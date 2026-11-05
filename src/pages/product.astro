@@ -56,7 +56,7 @@ const trust = [
     <h1 class="max-w-3xl text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl">
       Kuyun AI — say it once, and it is made.
     </h1>
-    <p class="mt-6 max-w-xl text-lg text-[--color-muted]">
+    <p class="mt-6 max-w-xl text-lg text-[var(--color-muted)]">
       Kuyun (say “koo-yoon”) is a personal AI you talk to. It remembers you, it
       works on things in the background while you are away, and it can always
       show you why it did what it did. Whoever receives what you made gets a
@@ -78,7 +78,7 @@ const trust = [
         kinds.map((l, i) => (
           <article class="card sm:flex sm:items-start sm:gap-8">
             <div class="flex items-center gap-4 sm:w-48 sm:shrink-0">
-              <span class="font-mono text-sm text-[--color-faint]">
+              <span class="font-mono text-sm text-[var(--color-faint)]">
                 0{i + 1}
               </span>
               <div>
@@ -87,14 +87,14 @@ const trust = [
               </div>
             </div>
             <div class="mt-4 sm:mt-0">
-              <p class="text-[--color-muted]">{l.body}</p>
+              <p class="text-[var(--color-muted)]">{l.body}</p>
               <ul class="mt-4 grid gap-2 sm:grid-cols-3">
                 {l.points.map((p) => (
                   <li class="flex items-start gap-2 text-sm">
-                    <span class="mt-1 text-[--color-accent]" aria-hidden="true">
+                    <span class="mt-1 text-[var(--color-accent)]" aria-hidden="true">
                       ▸
                     </span>
-                    <span class="text-[--color-fg]">{p}</span>
+                    <span class="text-[var(--color-fg)]">{p}</span>
                   </li>
                 ))}
               </ul>
@@ -117,7 +117,7 @@ const trust = [
         trust.map((v) => (
           <div class="card">
             <h3 class="font-semibold">{v.title}</h3>
-            <p class="mt-2 text-sm text-[--color-muted]">{v.body}</p>
+            <p class="mt-2 text-sm text-[var(--color-muted)]">{v.body}</p>
           </div>
         ))
       }
@@ -126,12 +126,12 @@ const trust = [
 
   <Section>
     <div
-      class="rounded-2xl border border-[--color-border] bg-[--color-surface] p-8 text-center sm:p-12"
+      class="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 text-center sm:p-12"
     >
       <h2 class="text-2xl font-semibold tracking-tight">
         Something to teach, read, collect or follow?
       </h2>
-      <p class="mx-auto mt-3 max-w-md text-[--color-muted]">
+      <p class="mx-auto mt-3 max-w-md text-[var(--color-muted)]">
         Kuyun is in beta and free every day. Ask it anything about itself — it
         answers from the same handbook its people read.
       </p>
