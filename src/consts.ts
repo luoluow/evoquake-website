@@ -3,10 +3,15 @@ export const SITE = {
   name: "EvoQuake",
   legalName: "EvoQuake CO.",
   email: "luo@evoquake.com",
-  tagline: "Frontier AI for everyone.",
+  tagline: "Frontier AI for everyone — Kuyun AI, by EvoQuake.",
   description:
-    "EvoQuake makes Kuyun — a personal AI assistant that remembers you, explains itself, and puts you in control of what it knows.",
+    "EvoQuake builds Kuyun AI: a personal AI that makes courses with a study partner, books read aloud, libraries with a librarian and morning briefings — works while you are away, shows its work, and has a free allowance every day.",
   url: "https://evoquake.com",
+  /** the product, where people use it */
+  kuyunUrl: "https://kuyun.evoquake.com/",
+  kuyunSignup: "https://kuyun.evoquake.com/app/#/signup",
+  /** the one-minute demo the app serves to anyone (kuyun-agent PR #1169) */
+  kuyunDemo: "https://kuyun.evoquake.com/app/kuyun-demo-20261104.mp4",
 } as const;
 
 export const KUYUN = {

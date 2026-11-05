@@ -1,63 +1,99 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
-import { KUYUN } from "../consts";
+import { SITE } from "../consts";
 
-const features = [
+const kinds = [
   {
-    name: "Memory",
-    tag: "Continuity",
-    body: "Tell it once. Preferences, projects, and context carry across every conversation, so Kuyun picks up where you left off instead of starting from zero.",
-    points: ["Remembers what matters to you", "Context carries across chats", "No re-explaining yourself"],
+    name: "Course",
+    tag: "Learn",
+    body: "Say what to teach and who for. Kuyun writes the course lesson by lesson with practice built in, and every learner who opens it gets a study partner that teaches a step at a time, checks each answer and keeps their place.",
+    points: ["Blanks, quizzes, flash cards", "Python written and run in the lesson", "Language courses: listen, then say it back"],
+    examples: `<a href="https://kuyun.evoquake.com/p/p_a8fa45a4c3" class="text-(--color-accent) hover:underline">Spanish A1</a> · <a href="https://kuyun.evoquake.com/p/p_d3185f469f" class="text-(--color-accent) hover:underline">French A1</a> · <a href="https://kuyun.evoquake.com/p/p_350968a0fa" class="text-(--color-accent) hover:underline">Chinese HSK 1</a> · <a href="https://kuyun.evoquake.com/p/p_65adef2443" class="text-(--color-accent) hover:underline">Japanese N5</a> · <a href="https://kuyun.evoquake.com/p/p_cf8e3f9e81" class="text-(--color-accent) hover:underline">English A1→A2</a> · <a href="https://kuyun.evoquake.com/p/p_3f59e7950c" class="text-(--color-accent) hover:underline">Intro Python</a>`,
   },
   {
-    name: "Adaptability",
-    tag: "Yours to shape",
-    body: "Ask for a change — “be more direct”, “keep answers short” — and it sticks. Your feedback shapes how Kuyun behaves, and you can even propose new abilities.",
-    points: ["Behavior changes persist", "Feedback shapes the assistant", "Propose new abilities"],
+    name: "Book",
+    tag: "Read & listen",
+    body: "A book built once and kept: chapters to read page by page or to listen to, and a reading companion that answers questions about the book — without spoilers.",
+    points: ["Read aloud, chapter by chapter", "A companion that answers, no spoilers", "A growing shelf of classics, free"],
+    examples: `<a href="https://kuyun.evoquake.com/p/p_f0d900bb17" class="text-(--color-accent) hover:underline">The Importance of Being Earnest</a> · <a href="https://kuyun.evoquake.com/p/p_88a3105888" class="text-(--color-accent) hover:underline">Dr Jekyll and Mr Hyde</a> · <a href="https://kuyun.evoquake.com/p/p_a90c9501f8" class="text-(--color-accent) hover:underline">The Great Gatsby</a> · <a href="https://kuyun.evoquake.com/p/p_1d5ba966d2" class="text-(--color-accent) hover:underline">The Secret Garden</a> · <a href="https://kuyun.evoquake.com/p/p_ae53a55125" class="text-(--color-accent) hover:underline">Alice in Wonderland</a> · <a href="https://kuyun.evoquake.com/app/#/explore?q=read%20aloud" class="text-(--color-accent) hover:underline">all audiobooks</a>`,
   },
   {
-    name: "Transparency",
-    tag: "Trust",
-    body: "Kuyun explains its answers and keeps an inspectable record of its actions. It can even read its own source to tell you exactly how it works.",
-    points: ["Reasoning behind every answer", "Inspectable action log", "Explains its own internals"],
+    name: "Research",
+    tag: "Understand",
+    body: "Ask a real question — longevity, medicine, AI — and Kuyun reads the papers and writes a report where every claim has its source; then ask the report itself anything. Put several works and your own files on one shelf and a librarian answers across all of them.",
+    points: ["Every claim cited to its source", "Ask the report questions afterwards", "A library: your files, papers and works, one librarian"],
+    examples: `<a href="https://kuyun.evoquake.com/p/p_f6dacf61b6" class="text-(--color-accent) hover:underline">aging clocks as endpoints</a> · <a href="https://kuyun.evoquake.com/p/p_475caa44fd" class="text-(--color-accent) hover:underline">rejuvenation without cancer</a> · <a href="https://kuyun.evoquake.com/p/p_b3603d5d58" class="text-(--color-accent) hover:underline">microbiome nutrition</a> · <a href="https://kuyun.evoquake.com/p/p_28e27d2bf1" class="text-(--color-accent) hover:underline">agent memory</a> · <a href="https://kuyun.evoquake.com/p/p_009c0ad0d8" class="text-(--color-accent) hover:underline">verifying tool calls</a> · <a href="https://kuyun.evoquake.com/app/#/explore?q=research" class="text-(--color-accent) hover:underline">more research</a>`,
   },
   {
-    name: "Control",
-    tag: "Your data",
-    body: "The “What Kuyun knows” page shows everything it has learned about you. Edit it, or delete it — conversations, memories, and your account — completely.",
-    points: ["See everything it knows", "Edit any memory", "True, complete deletion"],
+    name: "Briefing",
+    tag: "Follow",
+    body: "The same things looked up afresh every day at your hour and handed to you as a digest in your Home chat: the week in AI, a market briefing, a fare watch to Hawaii, the research on a subject you follow.",
+    points: ["Fresh each morning, with sources", "Lands in your Home chat", "Say what counts as news to you"],
+    examples: `<a href="https://kuyun.evoquake.com/p/p_eb4ce3e2bf" class="text-(--color-accent) hover:underline">Daily US Markets Briefing</a> · <a href="https://kuyun.evoquake.com/app/#/explore?q=briefing" class="text-(--color-accent) hover:underline">briefings</a>`,
   },
 ];
 
+const trust = [
+  {
+    title: "It shows its work",
+    body: "Every answer has a why you can open, every project keeps an inspectable record of what it did, and a separate reviewer judges each step before it counts.",
+  },
+  {
+    title: "It knows itself",
+    body: "Ask Kuyun how its memory works and it answers from a written account of what it actually does — the same pages you can read.",
+  },
+  {
+    title: "Your data, plainly",
+    body: "Everything it learns about you is visible and editable on one page. There is a real delete-everything button. It never sells your content or uses it to advertise, and it never acts on the world without you.",
+  },
+  {
+    title: "Free every day",
+    body: "Every account has a free allowance that comes back each morning. Publishing a work earns you credit as people use it.",
+  },
+];
 ---
 
-<Layout title="Kuyun" description="Kuyun is EvoQuake's personal AI assistant: frontier AI that remembers you, explains itself, and keeps you in control of your data.">
-  <Section
-    eyebrow={`${KUYUN.name} · ${KUYUN.status}`}
-    title="Frontier AI that works for you — and only you"
-    lead="Kuyun is a personal AI assistant built on transparency and user control. It remembers, adapts, explains itself, and lets you see and erase everything it knows."
-  >
-    <div class="mb-10 flex flex-wrap gap-3">
-      <a href={KUYUN.url} class="btn-primary">Open {KUYUN.name} →</a>
+<Layout title="Kuyun AI" description="Kuyun AI, by EvoQuake: courses with a study partner, books read aloud, libraries with a librarian, briefings every morning. It works while you are away, shows its work, and is free every day.">
+  <section class="container-x pt-20 pb-6 sm:pt-28">
+    <p class="eyebrow mb-5">The product</p>
+    <h1 class="max-w-3xl text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl">
+      Kuyun AI — say it once, and it is made.
+    </h1>
+    <p class="mt-6 max-w-xl text-lg text-(--color-muted)">
+      Kuyun (say “koo-yoon”) is a personal AI you talk to. It remembers you, it
+      works on things in the background while you are away, and it can always
+      show you why it did what it did. Whoever receives what you made gets a
+      companion of their own.
+    </p>
+    <div class="mt-9 flex flex-wrap gap-3">
+      <a href={SITE.kuyunSignup} class="btn-primary">Try it free</a>
+      <a href={SITE.kuyunDemo} class="btn-ghost">Watch the one-minute demo</a>
     </div>
+  </section>
+
+  <Section
+    eyebrow="Four kinds of work"
+    title="What you can ask for"
+    lead="You choose the kind when you start; Kuyun turns your sentence into a goal and a plan, asks the one or two things only you know, and gets to work."
+  >
     <div class="space-y-4">
       {
-        features.map((f, i) => (
+        kinds.map((l, i) => (
           <article class="card sm:flex sm:items-start sm:gap-8">
             <div class="flex items-center gap-4 sm:w-48 sm:shrink-0">
               <span class="font-mono text-sm text-(--color-faint)">
                 0{i + 1}
               </span>
               <div>
-                <h3 class="text-lg font-semibold">{f.name}</h3>
-                <span class="eyebrow">{f.tag}</span>
+                <h3 class="text-lg font-semibold">{l.name}</h3>
+                <span class="eyebrow">{l.tag}</span>
               </div>
             </div>
             <div class="mt-4 sm:mt-0">
-              <p class="text-(--color-muted)">{f.body}</p>
+              <p class="text-(--color-muted)">{l.body}</p>
               <ul class="mt-4 grid gap-2 sm:grid-cols-3">
-                {f.points.map((p) => (
+                {l.points.map((p) => (
                   <li class="flex items-start gap-2 text-sm">
                     <span class="mt-1 text-(--color-accent)" aria-hidden="true">
                       ▸
@@ -66,8 +102,28 @@ const features = [
                   </li>
                 ))}
               </ul>
+              <p class="mt-4 text-sm" set:html={l.examples} />
             </div>
           </article>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Explore and publish"
+    title="Made once, shared with anyone"
+    lead="Explore is where people find what others have published — by topic, by maker or by language. What you open goes on your Shelf with your place kept. Publish your own work with a cover and it is there for anyone, and it earns you credit as people use it. Kuyun speaks English, 中文 and Español."
+  />
+
+  <Section eyebrow="Why trust it" title="Reliable, transparent, accountable — by design">
+    <div class="grid gap-5 sm:grid-cols-2">
+      {
+        trust.map((v) => (
+          <div class="card">
+            <h3 class="font-semibold">{v.title}</h3>
+            <p class="mt-2 text-sm text-(--color-muted)">{v.body}</p>
+          </div>
         ))
       }
     </div>
@@ -78,15 +134,15 @@ const features = [
       class="rounded-2xl border border-(--color-border) bg-(--color-surface) p-8 text-center sm:p-12"
     >
       <h2 class="text-2xl font-semibold tracking-tight">
-        {KUYUN.name} is in private beta.
+        Something to teach, read, collect or follow?
       </h2>
       <p class="mx-auto mt-3 max-w-md text-(--color-muted)">
-        We're inviting people in gradually. Head over to {KUYUN.name} to join
-        the waiting list — or sign in if you already have access.
+        Kuyun is in beta and free every day. Ask it anything about itself — it
+        answers from the same handbook its people read.
       </p>
-      <div class="mt-7 flex flex-wrap justify-center gap-3">
-        <a href={KUYUN.url} class="btn-primary">Go to {KUYUN.name} →</a>
-      </div>
+      <a href={SITE.kuyunSignup} class="btn-primary mt-7">
+        Start on Kuyun →
+      </a>
     </div>
   </Section>
 </Layout>
