@@ -9,24 +9,28 @@ const kinds = [
     tag: "Learn",
     body: "Say what to teach and who for. Kuyun writes the course lesson by lesson with practice built in, and every learner who opens it gets a study partner that teaches a step at a time, checks each answer and keeps their place.",
     points: ["Blanks, quizzes, flash cards", "Python written and run in the lesson", "Language courses: listen, then say it back"],
+    examples: `<a href="https://kuyun.evoquake.com/p/p_a8fa45a4c3" class="text-[var(--color-accent)] hover:underline">Spanish A1</a> · <a href="https://kuyun.evoquake.com/p/p_d3185f469f" class="text-[var(--color-accent)] hover:underline">French A1</a> · <a href="https://kuyun.evoquake.com/p/p_350968a0fa" class="text-[var(--color-accent)] hover:underline">Chinese HSK 1</a> · <a href="https://kuyun.evoquake.com/p/p_65adef2443" class="text-[var(--color-accent)] hover:underline">Japanese N5</a> · <a href="https://kuyun.evoquake.com/p/p_cf8e3f9e81" class="text-[var(--color-accent)] hover:underline">English A1→A2</a> · <a href="https://kuyun.evoquake.com/p/p_3f59e7950c" class="text-[var(--color-accent)] hover:underline">Intro Python</a>`,
   },
   {
     name: "Book",
     tag: "Read & listen",
     body: "A book built once and kept: chapters to read page by page or to listen to, and a reading companion that answers questions about the book — without spoilers.",
     points: ["Read aloud, chapter by chapter", "A companion that answers, no spoilers", "A growing shelf of classics, free"],
+    examples: `<a href="https://kuyun.evoquake.com/p/p_f0d900bb17" class="text-[var(--color-accent)] hover:underline">The Importance of Being Earnest</a> · <a href="https://kuyun.evoquake.com/p/p_88a3105888" class="text-[var(--color-accent)] hover:underline">Dr Jekyll and Mr Hyde</a> · <a href="https://kuyun.evoquake.com/p/p_a90c9501f8" class="text-[var(--color-accent)] hover:underline">The Great Gatsby</a> · <a href="https://kuyun.evoquake.com/p/p_1d5ba966d2" class="text-[var(--color-accent)] hover:underline">The Secret Garden</a> · <a href="https://kuyun.evoquake.com/p/p_ae53a55125" class="text-[var(--color-accent)] hover:underline">Alice in Wonderland</a> · <a href="https://kuyun.evoquake.com/app/#/explore?q=read%20aloud" class="text-[var(--color-accent)] hover:underline">all audiobooks</a>`,
   },
   {
-    name: "Library",
-    tag: "Collect & ask",
-    body: "A collection with a purpose — your own files, papers, the works Kuyun made — and a librarian who answers across all of it and says which page the answer came from.",
-    points: ["Your files, papers and works on one shelf", "One librarian for the whole collection", "Every answer names its page"],
+    name: "Research",
+    tag: "Understand",
+    body: "Ask a real question — longevity, medicine, AI — and Kuyun reads the papers and writes a report where every claim has its source; then ask the report itself anything. Put several works and your own files on one shelf and a librarian answers across all of them.",
+    points: ["Every claim cited to its source", "Ask the report questions afterwards", "A library: your files, papers and works, one librarian"],
+    examples: `<a href="https://kuyun.evoquake.com/p/p_f6dacf61b6" class="text-[var(--color-accent)] hover:underline">aging clocks as endpoints</a> · <a href="https://kuyun.evoquake.com/p/p_475caa44fd" class="text-[var(--color-accent)] hover:underline">rejuvenation without cancer</a> · <a href="https://kuyun.evoquake.com/p/p_b3603d5d58" class="text-[var(--color-accent)] hover:underline">microbiome nutrition</a> · <a href="https://kuyun.evoquake.com/p/p_28e27d2bf1" class="text-[var(--color-accent)] hover:underline">agent memory</a> · <a href="https://kuyun.evoquake.com/p/p_009c0ad0d8" class="text-[var(--color-accent)] hover:underline">verifying tool calls</a> · <a href="https://kuyun.evoquake.com/app/#/explore?q=research" class="text-[var(--color-accent)] hover:underline">more research</a>`,
   },
   {
     name: "Briefing",
     tag: "Follow",
-    body: "The same things looked up afresh every day at your hour and handed to you as a digest in your Home chat: a fare watch, a market briefing, the news on a subject you follow.",
+    body: "The same things looked up afresh every day at your hour and handed to you as a digest in your Home chat: the week in AI, a market briefing, a fare watch to Hawaii, the research on a subject you follow.",
     points: ["Fresh each morning, with sources", "Lands in your Home chat", "Say what counts as news to you"],
+    examples: `<a href="https://kuyun.evoquake.com/p/p_eb4ce3e2bf" class="text-[var(--color-accent)] hover:underline">Daily US Markets Briefing</a> · <a href="https://kuyun.evoquake.com/app/#/explore?q=briefing" class="text-[var(--color-accent)] hover:underline">briefings</a>`,
   },
 ];
 
@@ -98,6 +102,7 @@ const trust = [
                   </li>
                 ))}
               </ul>
+              <p class="mt-4 text-sm" set:html={l.examples} />
             </div>
           </article>
         ))

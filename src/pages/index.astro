@@ -6,18 +6,27 @@ import { SITE } from "../consts";
 const makes = [
   {
     icon: "◇",
-    title: "Courses, with a study partner",
-    body: "Say what to teach and who for; Kuyun writes it lesson by lesson, with practice — blanks, quizzes, flash cards, Python you write and run in the lesson, and in a language course, lines you listen to and say back. Every learner gets a study partner that teaches a step at a time and checks their answers.",
+    title: "Speak a new language — with a partner who listens",
+    html: `Free courses that teach you to hear and say the language, not just read it: <a href="https://kuyun.evoquake.com/p/p_a8fa45a4c3" class="text-[var(--color-accent)] hover:underline">Spanish</a>, <a href="https://kuyun.evoquake.com/p/p_d3185f469f" class="text-[var(--color-accent)] hover:underline">French</a>, <a href="https://kuyun.evoquake.com/p/p_350968a0fa" class="text-[var(--color-accent)] hover:underline">Chinese</a>, <a href="https://kuyun.evoquake.com/p/p_65adef2443" class="text-[var(--color-accent)] hover:underline">Japanese</a>, <a href="https://kuyun.evoquake.com/p/p_cf8e3f9e81" class="text-[var(--color-accent)] hover:underline">English</a>. Each lesson is a story with the lines spoken aloud; you say them back and your study partner tells you how it sounded, then checks your blanks and quizzes.`,
+    more: `<a href="https://kuyun.evoquake.com/app/#/explore?q=language%20course" class="text-[var(--color-accent)] hover:underline">All language courses →</a>`,
   },
   {
     icon: "◷",
-    title: "Books read aloud, libraries with a librarian",
-    body: "A book kept chapter by chapter, to read or to listen to, with a reading companion that answers without spoilers — a growing shelf of classics is already narrated, free. A library is a collection with a purpose, and a librarian who answers across all of it.",
+    title: "Hear the classics, free",
+    html: `A growing shelf of audiobooks read chapter by chapter, with a reading companion that answers your questions and keeps the spoilers: <a href="https://kuyun.evoquake.com/p/p_f0d900bb17" class="text-[var(--color-accent)] hover:underline">The Importance of Being Earnest</a>, <a href="https://kuyun.evoquake.com/p/p_88a3105888" class="text-[var(--color-accent)] hover:underline">Dr Jekyll and Mr Hyde</a>, <a href="https://kuyun.evoquake.com/p/p_a90c9501f8" class="text-[var(--color-accent)] hover:underline">The Great Gatsby</a>, <a href="https://kuyun.evoquake.com/p/p_1d5ba966d2" class="text-[var(--color-accent)] hover:underline">The Secret Garden</a>, <a href="https://kuyun.evoquake.com/p/p_4fb8b9113a" class="text-[var(--color-accent)] hover:underline">The Time Machine</a>, <a href="https://kuyun.evoquake.com/p/p_ae53a55125" class="text-[var(--color-accent)] hover:underline">Alice in Wonderland</a>, <a href="https://kuyun.evoquake.com/p/p_5b7de26d31" class="text-[var(--color-accent)] hover:underline">bedtime stories</a>. New titles land every day, in English, Spanish, French, Chinese and more.`,
+    more: `<a href="https://kuyun.evoquake.com/app/#/explore?q=read%20aloud" class="text-[var(--color-accent)] hover:underline">Browse the shelf →</a>`,
   },
   {
     icon: "⌁",
-    title: "Briefings, every morning",
-    body: "“Tell me when there is a good flight deal to Hawaii.” Kuyun looks the same things up afresh at your hour and hands you the day's digest — in your Home chat, with its sources.",
+    title: "Understand the research — longevity, medicine, AI",
+    html: `Ask a real question and Kuyun reads the papers and writes you a report where every claim has its source: <a href="https://kuyun.evoquake.com/p/p_f6dacf61b6" class="text-[var(--color-accent)] hover:underline">can an aging clock be a clinical endpoint?</a>, <a href="https://kuyun.evoquake.com/p/p_475caa44fd" class="text-[var(--color-accent)] hover:underline">rejuvenation without cancer</a>, <a href="https://kuyun.evoquake.com/p/p_b3603d5d58" class="text-[var(--color-accent)] hover:underline">does microbiome-based nutrition work?</a>, <a href="https://kuyun.evoquake.com/p/p_fdc3d695cf" class="text-[var(--color-accent)] hover:underline">how well does pathology AI travel?</a>, <a href="https://kuyun.evoquake.com/p/p_28e27d2bf1" class="text-[var(--color-accent)] hover:underline">memory for long-horizon agents</a>, <a href="https://kuyun.evoquake.com/p/p_009c0ad0d8" class="text-[var(--color-accent)] hover:underline">verifying LLM tool calls</a>. Then ask the report itself anything.`,
+    more: `<a href="https://kuyun.evoquake.com/app/#/explore?q=research" class="text-[var(--color-accent)] hover:underline">More research →</a>`,
+  },
+  {
+    icon: "◎",
+    title: "Stay ahead — a briefing every morning",
+    html: `Say what you follow and Kuyun looks it up afresh at your hour and hands you the day's digest with its sources — <a href="https://kuyun.evoquake.com/p/p_eb4ce3e2bf" class="text-[var(--color-accent)] hover:underline">the US markets</a>, the week in AI, flight deals to Hawaii, the research on a subject you care about. It lands in your Home chat; nothing to open, nothing to search.`,
+    more: `<a href="https://kuyun.evoquake.com/app/#/explore?q=briefing" class="text-[var(--color-accent)] hover:underline">See a briefing →</a>`,
   },
 ];
 
@@ -84,11 +93,11 @@ const layers = [
 
   <!-- What people make -->
   <Section
-    eyebrow="What people make with Kuyun"
-    title="Work that continues between your visits"
-    lead="A project is a goal, a brief and a plan that Kuyun runs on its own and tells you when something has moved. These are the kinds people make most."
+    eyebrow="What will you learn today?"
+    title="Real things people are learning on Kuyun right now"
+    lead="Every link below is a published work you can open. Each comes with a companion of its own — a study partner, a reading companion, a report you can question."
   >
-    <div class="grid gap-5 sm:grid-cols-3">
+    <div class="grid gap-5 sm:grid-cols-2">
       {
         makes.map((p) => (
           <div class="card">
@@ -99,7 +108,8 @@ const layers = [
               {p.icon}
             </div>
             <h3 class="mt-4 font-semibold">{p.title}</h3>
-            <p class="mt-2 text-sm text-[var(--color-muted)]">{p.body}</p>
+            <p class="mt-2 text-sm text-[var(--color-muted)]" set:html={p.html} />
+            <p class="mt-3 text-sm font-medium" set:html={p.more} />
           </div>
         ))
       }
