@@ -78,7 +78,7 @@
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-accent)];
+    @apply inline-flex items-center gap-2 font-mono text-xs font-medium uppercase tracking-[0.2em] text-(--color-accent);
   }
 
   /* Brand gradient text for emphasis */
@@ -100,17 +100,17 @@
     @apply inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-medium transition-all duration-150;
   }
   .btn-primary {
-    @apply bg-[var(--color-accent-strong)] text-white shadow-sm hover:bg-[var(--color-accent)] hover:shadow-md;
+    @apply bg-(--color-accent-strong) text-white shadow-sm hover:bg-(--color-accent) hover:shadow-md;
   }
   .btn-ghost {
-    @apply border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-fg)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)];
+    @apply border border-(--color-border) bg-(--color-surface) text-(--color-fg) hover:border-(--color-accent) hover:text-(--color-accent);
   }
 
   .card {
-    @apply rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--color-accent)] hover:shadow-md;
+    @apply rounded-xl border border-(--color-border) bg-(--color-surface) p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-(--color-accent) hover:shadow-md;
   }
 
   .link-muted {
-    @apply text-[var(--color-muted)] transition-colors hover:text-[var(--color-fg)];
+    @apply text-(--color-muted) transition-colors hover:text-(--color-fg);
   }
 }

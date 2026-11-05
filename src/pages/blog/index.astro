@@ -11,17 +11,17 @@ const fmt = (d: Date) =>
   d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
 ---
 
-<Layout title="Blog" description="Notes on agentic infrastructure, reliability, and building agents people can trust.">
+<Layout title="Blog" description="Notes from EvoQuake on building Kuyun and bringing frontier AI to everyone.">
   <Section
     eyebrow="Blog"
     title="Notes from the build"
-    lead="Thinking on agentic infrastructure, reliability, and the road to agents people can trust."
+    lead="Thinking on Kuyun, personal AI, and what it takes to build an assistant people can trust."
   >
     {
       posts.length === 0 ? (
-        <p class="text-[var(--color-muted)]">No posts yet — check back soon.</p>
+        <p class="text-(--color-muted)">No posts yet — check back soon.</p>
       ) : (
-        <ul class="divide-y divide-[var(--color-border)] border-t border-[var(--color-border)]">
+        <ul class="divide-y divide-(--color-border) border-t border-(--color-border)">
           {posts.map((post) => (
             <li>
               <a
@@ -30,15 +30,15 @@ const fmt = (d: Date) =>
               >
                 <time
                   datetime={post.data.pubDate.toISOString()}
-                  class="font-mono text-xs text-[var(--color-faint)] sm:w-28 sm:shrink-0"
+                  class="font-mono text-xs text-(--color-faint) sm:w-28 sm:shrink-0"
                 >
                   {fmt(post.data.pubDate)}
                 </time>
                 <div>
-                  <h2 class="font-medium text-[var(--color-fg)] group-hover:text-[var(--color-accent)]">
+                  <h2 class="font-medium text-(--color-fg) group-hover:text-(--color-accent)">
                     {post.data.title}
                   </h2>
-                  <p class="mt-1 text-sm text-[var(--color-muted)]">
+                  <p class="mt-1 text-sm text-(--color-muted)">
                     {post.data.description}
                   </p>
                 </div>

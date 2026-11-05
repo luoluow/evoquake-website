@@ -14,6 +14,13 @@ export const SITE = {
   kuyunDemo: "https://kuyun.evoquake.com/app/kuyun-demo-20261104.mp4",
 } as const;
 
+export const KUYUN = {
+  name: "Kuyun",
+  url: "https://kuyun.evoquake.com/",
+  appUrl: "https://kuyun.evoquake.com/app/",
+  status: "Private beta",
+} as const;
+
 export const NAV = [
   { href: "/", label: "Home" },
   { href: "/product", label: "Kuyun" },
