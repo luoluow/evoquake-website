@@ -12,6 +12,12 @@ export const SITE = {
   kuyunSignup: "https://kuyun.evoquake.com/app/#/signup",
   /** the one-minute demo the app serves to anyone (kuyun-agent PR #1169) */
   kuyunDemo: "https://kuyun.evoquake.com/app/kuyun-demo-20261104.mp4",
+  /**
+   * Google Analytics 4 measurement ID, "G-XXXXXXXXXX" (analytics.google.com →
+   * Admin → Data streams). Public by design — it ships in every page's HTML.
+   * Empty = no tracking script.
+   */
+  gaMeasurementId: "G-MFB1F1XBY0" as string,
 } as const;
 
 export const KUYUN = {
