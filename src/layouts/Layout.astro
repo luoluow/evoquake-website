@@ -39,6 +39,27 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE.url).href;
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
+
+    {
+      /* Google Analytics 4 — production builds only, so dev traffic isn't counted. */
+      import.meta.env.PROD && SITE.gaMeasurementId && (
+        <>
+          <script
+            is:inline
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${SITE.gaMeasurementId}`}
+          />
+          <script is:inline define:vars={{ gaId: SITE.gaMeasurementId }}>
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function () {
+              window.dataLayer.push(arguments);
+            };
+            window.gtag("js", new Date());
+            window.gtag("config", gaId);
+          </script>
+        </>
+      )
+    }
   </head>
   <body class="flex min-h-screen flex-col">
     <Header />
