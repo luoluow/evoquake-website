@@ -6,6 +6,9 @@ on:
     branches: [main]
   # ...and allow manual runs from the Actions tab
   workflow_dispatch:
+  # ...and weekly, so /works (read from Kuyun's catalogue at build) stays fresh
+  schedule:
+    - cron: "17 6 * * 1"
 
 # Permissions the GITHUB_TOKEN needs to deploy to Pages
 permissions:
