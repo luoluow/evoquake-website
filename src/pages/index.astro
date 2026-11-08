@@ -1,32 +1,33 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
-import { SITE } from "../consts";
+import { SITE, kuyunCollection } from "../consts";
+import { demoVideo } from "../schema";
 
 const makes = [
   {
     icon: "◇",
     title: "Speak a new language — with a partner who listens",
     html: `Free courses that teach you to hear and say the language, not just read it: <a href="https://kuyun.evoquake.com/p/p_a8fa45a4c3" class="text-(--color-accent) hover:underline">Spanish</a>, <a href="https://kuyun.evoquake.com/p/p_d3185f469f" class="text-(--color-accent) hover:underline">French</a>, <a href="https://kuyun.evoquake.com/p/p_350968a0fa" class="text-(--color-accent) hover:underline">Chinese</a>, <a href="https://kuyun.evoquake.com/p/p_65adef2443" class="text-(--color-accent) hover:underline">Japanese</a>, <a href="https://kuyun.evoquake.com/p/p_cf8e3f9e81" class="text-(--color-accent) hover:underline">English</a>. Each lesson is a story with the lines spoken aloud; you say them back and your study partner tells you how it sounded, then checks your blanks and quizzes.`,
-    more: `<a href="https://kuyun.evoquake.com/app/#/explore?q=language%20course" class="text-(--color-accent) hover:underline">All language courses →</a>`,
+    more: `<a href="${kuyunCollection("learn-a-language")}" class="text-(--color-accent) hover:underline">All language courses →</a>`,
   },
   {
     icon: "◷",
     title: "Hear the classics, free",
     html: `A growing shelf of audiobooks read chapter by chapter, with a reading companion that answers your questions and keeps the spoilers: <a href="https://kuyun.evoquake.com/p/p_f0d900bb17" class="text-(--color-accent) hover:underline">The Importance of Being Earnest</a>, <a href="https://kuyun.evoquake.com/p/p_88a3105888" class="text-(--color-accent) hover:underline">Dr Jekyll and Mr Hyde</a>, <a href="https://kuyun.evoquake.com/p/p_a90c9501f8" class="text-(--color-accent) hover:underline">The Great Gatsby</a>, <a href="https://kuyun.evoquake.com/p/p_1d5ba966d2" class="text-(--color-accent) hover:underline">The Secret Garden</a>, <a href="https://kuyun.evoquake.com/p/p_4fb8b9113a" class="text-(--color-accent) hover:underline">The Time Machine</a>, <a href="https://kuyun.evoquake.com/p/p_ae53a55125" class="text-(--color-accent) hover:underline">Alice in Wonderland</a>, <a href="https://kuyun.evoquake.com/p/p_5b7de26d31" class="text-(--color-accent) hover:underline">bedtime stories</a>. New titles land every day, in English, Spanish, French, Chinese and more.`,
-    more: `<a href="https://kuyun.evoquake.com/app/#/explore?q=read%20aloud" class="text-(--color-accent) hover:underline">Browse the shelf →</a>`,
+    more: `<a href="${kuyunCollection("read-aloud")}" class="text-(--color-accent) hover:underline">Browse the shelf →</a>`,
   },
   {
     icon: "⌁",
     title: "Understand the research — longevity, medicine, AI",
     html: `Ask a real question and Kuyun reads the papers and writes you a report where every claim has its source: <a href="https://kuyun.evoquake.com/p/p_f6dacf61b6" class="text-(--color-accent) hover:underline">can an aging clock be a clinical endpoint?</a>, <a href="https://kuyun.evoquake.com/p/p_475caa44fd" class="text-(--color-accent) hover:underline">rejuvenation without cancer</a>, <a href="https://kuyun.evoquake.com/p/p_b3603d5d58" class="text-(--color-accent) hover:underline">does microbiome-based nutrition work?</a>, <a href="https://kuyun.evoquake.com/p/p_fdc3d695cf" class="text-(--color-accent) hover:underline">how well does pathology AI travel?</a>, <a href="https://kuyun.evoquake.com/p/p_28e27d2bf1" class="text-(--color-accent) hover:underline">memory for long-horizon agents</a>, <a href="https://kuyun.evoquake.com/p/p_009c0ad0d8" class="text-(--color-accent) hover:underline">verifying LLM tool calls</a>. Then ask the report itself anything.`,
-    more: `<a href="https://kuyun.evoquake.com/app/#/explore?q=research" class="text-(--color-accent) hover:underline">More research →</a>`,
+    more: `<a href="${kuyunCollection("papers")}" class="text-(--color-accent) hover:underline">More research →</a>`,
   },
   {
     icon: "◎",
     title: "Stay ahead — a briefing every morning",
     html: `Say what you follow and Kuyun looks it up afresh at your hour and hands you the day's digest with its sources — <a href="https://kuyun.evoquake.com/p/p_792788f231" class="text-(--color-accent) hover:underline">the morning in AI</a>, <a href="https://kuyun.evoquake.com/p/p_eb4ce3e2bf" class="text-(--color-accent) hover:underline">the US markets</a>, flight deals to Hawaii, the research on a subject you care about. It lands in your Home chat; nothing to open, nothing to search.`,
-    more: `<a href="https://kuyun.evoquake.com/app/#/explore?q=briefing" class="text-(--color-accent) hover:underline">See a briefing →</a>`,
+    more: `<a href="/works" class="text-(--color-accent) hover:underline">Everything people have published →</a>`,
   },
 ];
 
@@ -52,7 +53,7 @@ const layers = [
 ];
 ---
 
-<Layout>
+<Layout schema={demoVideo}>
   <!-- Hero -->
   <section class="container-x pt-20 pb-16 sm:pt-28">
     <p class="eyebrow mb-5">
@@ -118,6 +119,7 @@ const layers = [
       Publish a work with a cover and it is on <strong class="text-(--color-fg)">Explore</strong>
       for anyone to find — by topic, by maker or by language — and it earns you
       credit as people use it. Kuyun speaks English, 中文 and Español.
+      <a href="/works" class="text-(--color-accent) hover:underline">See what is published →</a>
     </p>
   </Section>
 

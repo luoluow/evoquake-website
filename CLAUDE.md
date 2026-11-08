@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-The corporate marketing website for **EvoQuake CO.** (founded by Michael Luo). Positioning (since 2026-08): "Frontier AI for everyone" — the company's single product is **Kuyun**, a personal AI assistant at https://kuyun.evoquake.com/ (private beta; source in `~/code/kuyun-agent`). The site markets Kuyun and points to it; it does not host the app. Multi-page static site with a dark, technical aesthetic.
+The corporate marketing website for **EvoQuake CO.** (founded by Michael Luo). Positioning (since 2026-08): "Frontier AI for everyone" — the company's single product is **Kuyun**, a personal AI assistant at https://kuyun.evoquake.com/ (in beta, open to sign up; source in `~/code/kuyun-agent`). The site markets Kuyun and points to it; it does not host the app. Multi-page static site with a dark, technical aesthetic.
 
 ## Stack
 
@@ -30,6 +30,8 @@ There is no test suite or linter configured. `npm run build` is the de-facto che
   - **Tailwind v4 gotcha:** CSS-variable arbitrary values use parens — `bg-(--color-accent)`, not `bg-[--color-accent]` (the bracket form compiles to an invalid literal and is silently ignored). Also `@apply` cannot reference another custom class. To share base styles, list selectors together (see how `.btn-primary`/`.btn-ghost` group with `.btn`) rather than `@apply btn`.
 - **Blog uses Astro content collections.** Schema is in `src/content.config.ts`; posts are Markdown in `src/content/blog/*.md` with frontmatter (`title`, `description`, `pubDate`, `author`, optional `draft`). `src/pages/blog/index.astro` lists them; `src/pages/blog/[...slug].astro` renders one. To add a post, drop a new `.md` file in — no code changes needed. The post URL slug is the filename.
 - **Analytics is Google Analytics 4** — the standard gtag snippet in the `<head>` of `Layout.astro`, rendered only in production builds and only when `SITE.gaMeasurementId` (in `src/consts.ts`) is non-empty. It is the site's only client JS. Stats are in analytics.google.com, not GitHub.
+- **`/works` is built from Kuyun's public catalogue** (`SITE.kuyunCatalogue`, fetched in `src/pages/works.astro` at build; a failed fetch leaves a page that says so, not a failed deploy). It is as fresh as the last deploy, so `deploy.yml` also runs weekly. Links to Kuyun's own public pages: a work is `SITE.kuyunWorks/<id>`, a topic is `kuyunCollection(page)` (the `COLLECTIONS` list in `consts.ts` — an empty collection answers 404 on Kuyun, so add a topic there once it has works), the handbook is `SITE.kuyunHelp`. Never link `/app/#/explore?...` for a visitor: that is the signed-in app.
+- **Search engines:** `src/pages/sitemap.xml.ts` builds the sitemap (every page and post — add a new page to its list), `public/robots.txt` names it, `public/BingSiteAuth.xml` is Bing's verification. schema.org records live in `src/schema.ts`; `Layout` puts the organization on every page and a page passes more as `schema={...}` (the product page: the app and the demo video; a post: `blogPosting`).
 - **Contact is mailto-only** — no backend/form service. The contact page and CTAs build `mailto:` links (with prefilled subjects) from `SITE.email`. Beta sign-up is NOT handled here — all "Open Kuyun"/"Go to Kuyun" CTAs link to `KUYUN.url`, where users join the waitlist.
 
 ## Assets

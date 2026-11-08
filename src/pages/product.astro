@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
-import { SITE } from "../consts";
+import { SITE, kuyunCollection } from "../consts";
+import { demoVideo, kuyunApp } from "../schema";
 
 const kinds = [
   {
@@ -16,21 +17,21 @@ const kinds = [
     tag: "Read & listen",
     body: "A book built once and kept: chapters to read page by page or to listen to, and a reading companion that answers questions about the book — without spoilers.",
     points: ["Read aloud, chapter by chapter", "A companion that answers, no spoilers", "A growing shelf of classics, free"],
-    examples: `<a href="https://kuyun.evoquake.com/p/p_f0d900bb17" class="text-(--color-accent) hover:underline">The Importance of Being Earnest</a> · <a href="https://kuyun.evoquake.com/p/p_88a3105888" class="text-(--color-accent) hover:underline">Dr Jekyll and Mr Hyde</a> · <a href="https://kuyun.evoquake.com/p/p_a90c9501f8" class="text-(--color-accent) hover:underline">The Great Gatsby</a> · <a href="https://kuyun.evoquake.com/p/p_1d5ba966d2" class="text-(--color-accent) hover:underline">The Secret Garden</a> · <a href="https://kuyun.evoquake.com/p/p_ae53a55125" class="text-(--color-accent) hover:underline">Alice in Wonderland</a> · <a href="https://kuyun.evoquake.com/app/#/explore?q=read%20aloud" class="text-(--color-accent) hover:underline">all audiobooks</a>`,
+    examples: `<a href="https://kuyun.evoquake.com/p/p_f0d900bb17" class="text-(--color-accent) hover:underline">The Importance of Being Earnest</a> · <a href="https://kuyun.evoquake.com/p/p_88a3105888" class="text-(--color-accent) hover:underline">Dr Jekyll and Mr Hyde</a> · <a href="https://kuyun.evoquake.com/p/p_a90c9501f8" class="text-(--color-accent) hover:underline">The Great Gatsby</a> · <a href="https://kuyun.evoquake.com/p/p_1d5ba966d2" class="text-(--color-accent) hover:underline">The Secret Garden</a> · <a href="https://kuyun.evoquake.com/p/p_ae53a55125" class="text-(--color-accent) hover:underline">Alice in Wonderland</a> · <a href="${kuyunCollection("read-aloud")}" class="text-(--color-accent) hover:underline">all audiobooks</a>`,
   },
   {
     name: "Research",
     tag: "Understand",
     body: "Ask a real question — longevity, medicine, AI — and Kuyun reads the papers and writes a report where every claim has its source; then ask the report itself anything. Put several works and your own files on one shelf and a librarian answers across all of them.",
     points: ["Every claim cited to its source", "Ask the report questions afterwards", "A library: your files, papers and works, one librarian"],
-    examples: `<a href="https://kuyun.evoquake.com/p/p_f6dacf61b6" class="text-(--color-accent) hover:underline">aging clocks as endpoints</a> · <a href="https://kuyun.evoquake.com/p/p_475caa44fd" class="text-(--color-accent) hover:underline">rejuvenation without cancer</a> · <a href="https://kuyun.evoquake.com/p/p_b3603d5d58" class="text-(--color-accent) hover:underline">microbiome nutrition</a> · <a href="https://kuyun.evoquake.com/p/p_28e27d2bf1" class="text-(--color-accent) hover:underline">agent memory</a> · <a href="https://kuyun.evoquake.com/p/p_009c0ad0d8" class="text-(--color-accent) hover:underline">verifying tool calls</a> · <a href="https://kuyun.evoquake.com/app/#/explore?q=research" class="text-(--color-accent) hover:underline">more research</a>`,
+    examples: `<a href="https://kuyun.evoquake.com/p/p_f6dacf61b6" class="text-(--color-accent) hover:underline">aging clocks as endpoints</a> · <a href="https://kuyun.evoquake.com/p/p_475caa44fd" class="text-(--color-accent) hover:underline">rejuvenation without cancer</a> · <a href="https://kuyun.evoquake.com/p/p_b3603d5d58" class="text-(--color-accent) hover:underline">microbiome nutrition</a> · <a href="https://kuyun.evoquake.com/p/p_28e27d2bf1" class="text-(--color-accent) hover:underline">agent memory</a> · <a href="https://kuyun.evoquake.com/p/p_009c0ad0d8" class="text-(--color-accent) hover:underline">verifying tool calls</a> · <a href="${kuyunCollection("papers")}" class="text-(--color-accent) hover:underline">more research</a>`,
   },
   {
     name: "Briefing",
     tag: "Follow",
     body: "The same things looked up afresh every day at your hour and handed to you as a digest in your Home chat: the week in AI, a market briefing, a fare watch to Hawaii, the research on a subject you follow.",
     points: ["Fresh each morning, with sources", "Lands in your Home chat", "Say what counts as news to you"],
-    examples: `<a href="https://kuyun.evoquake.com/p/p_792788f231" class="text-(--color-accent) hover:underline">Morning AI Briefing</a> · <a href="https://kuyun.evoquake.com/p/p_eb4ce3e2bf" class="text-(--color-accent) hover:underline">Daily US Markets Briefing</a> · <a href="https://kuyun.evoquake.com/app/#/explore?q=briefing" class="text-(--color-accent) hover:underline">briefings</a>`,
+    examples: `<a href="https://kuyun.evoquake.com/p/p_792788f231" class="text-(--color-accent) hover:underline">Morning AI Briefing</a> · <a href="https://kuyun.evoquake.com/p/p_eb4ce3e2bf" class="text-(--color-accent) hover:underline">Daily US Markets Briefing</a> · <a href="/works" class="text-(--color-accent) hover:underline">all published works</a>`,
   },
 ];
 
@@ -54,7 +55,7 @@ const trust = [
 ];
 ---
 
-<Layout title="Kuyun AI" description="Kuyun AI, by EvoQuake: courses with a study partner, books read aloud, libraries with a librarian, briefings every morning. It works while you are away, shows its work, and is free every day.">
+<Layout title="Kuyun AI" description="Kuyun AI, by EvoQuake: courses with a study partner, books read aloud, libraries with a librarian, briefings every morning. It works while you are away, shows its work, and is free every day." schema={[kuyunApp, demoVideo]}>
   <section class="container-x pt-20 pb-6 sm:pt-28">
     <p class="eyebrow mb-5">The product</p>
     <h1 class="max-w-3xl text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl">
@@ -138,7 +139,7 @@ const trust = [
       </h2>
       <p class="mx-auto mt-3 max-w-md text-(--color-muted)">
         Kuyun is in beta and free every day. Ask it anything about itself — it
-        answers from the same handbook its people read.
+        answers from the same <a href={SITE.kuyunHelp} class="text-(--color-accent) hover:underline">handbook</a> you can read.
       </p>
       <a href={SITE.kuyunSignup} class="btn-primary mt-7">
         Start on Kuyun →
