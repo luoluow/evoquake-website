@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="EvoQuake — frontier AI for everyone. Kuyun AI, by EvoQuake.">
+  <!-- The picture a link to evoquake.com previews with (Layout.astro,
+       og:image). og-card.png beside it is this file rendered at 1200x630
+       in headless Chrome; a preview cannot be an SVG. -->
+  <title>EvoQuake — frontier AI for everyone</title>
+  <defs>
+    <linearGradient id="brand" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0EA5A4"/>
+      <stop offset="50%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0EA5A4"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#fbf6ec"/>
+  <rect width="1200" height="14" fill="url(#brand)"/>
+  <g transform="translate(76,62) scale(0.9)">
+    <path d="M70 5 L130 35 L130 105 L70 135 L10 105 L10 35 Z"
+          fill="none" stroke="url(#mark)" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M20 70 L42 70 L52 50 L62 95 L75 35 L88 100 L98 70 L120 70"
+          fill="none" stroke="url(#mark)" stroke-width="6"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="120" cy="70" r="6" fill="#10B981"/>
+  </g>
+  <g font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+    <text x="222" y="150" font-size="64" font-weight="700" letter-spacing="-2" fill="url(#brand)">Evo<tspan fill="#211c16">Quake</tspan></text>
+    <text x="80" y="342" font-size="84" font-weight="700" fill="#211c16">Frontier AI for everyone</text>
+    <text x="80" y="420" font-size="33" fill="#6e6557">Kuyun AI builds what you ask for while you are away:</text>
+    <text x="80" y="468" font-size="33" fill="#6e6557">courses, books read aloud, research, a briefing every morning</text>
+    <rect x="80" y="520" width="264" height="58" rx="29" fill="#0f766e"/>
+    <text x="108" y="559" font-size="30" font-weight="600" fill="#ffffff">Free every day</text>
+    <text x="1120" y="559" font-size="30" fill="#0f766e" text-anchor="end">evoquake.com</text>
+  </g>
+</svg>
