@@ -20,7 +20,7 @@ back at it.
 
 ## Six courses, one shelf
 
-There are [six courses, from A1 to C2](https://kuyun.evoquake.com/spanish):
+There are [six courses, from A1 to C2](https://kuyun.evoquake.com/c/spanish):
 
 - **A1** — greeting people, introducing yourself, tú and usted.
 - **A2** — the past tense, your day, a trip.
@@ -53,5 +53,5 @@ the part most apps leave out because it is hard to judge. Kuyun listens,
 writes what it heard, and has a partner say how it went — the same loop a
 good tutor runs, lesson after lesson, for anyone who opens the course.
 
-[Start with A1](https://kuyun.evoquake.com/spanish), or see
+[Start with A1](https://kuyun.evoquake.com/c/spanish), or see
 [everything people have published on Kuyun](/works).
