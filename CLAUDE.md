@@ -36,6 +36,7 @@ There is no test suite or linter configured. `npm run build` is the de-facto che
 
 ## Assets
 
+- **Link previews:** every page names `public/og-card.png` (1200×630) as its `og:image`, from `Layout.astro`. Its source is `public/og-card.svg`; after changing the drawing, re-render it: `chrome --headless=new --window-size=1200,630 --screenshot=public/og-card.png public/og-card.svg`, and look at the result.
 - `public/` is served at the site root. Contains `favicon.svg` and `evoquake_logo.svg` (used in `Header` + `Footer`, so it shows on every page).
 - **Logo:** `public/evoquake_logo.svg` is a **dark-theme variant** of the brand logo — "Quake" and tagline are recolored light for legibility on the dark background. The canonical light-background source lives in `Resources/` (`evoquake_logo.svg`, plus `evoquake_logo_mono.svg` and `evoquake_icon.svg`). If the brand logo changes, update both the source and this published variant.
 - `Resources/MichaelLuoResume.pdf` is the founder's source résumé — kept as reference material only (the `/about` bio was written from it). It is **not** published or linked from the site. `Resources/` is gitignored.
