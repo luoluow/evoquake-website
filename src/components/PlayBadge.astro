@@ -1,0 +1,18 @@
+---
+// Google's own "Get it on Google Play" badge, unaltered (its brand rules
+// want the official artwork; only the PNG's transparent margin is trimmed).
+// Sized to sit level with .btn-primary / .btn-ghost in a row of buttons.
+// Kuyun's Android app is live since 2026-11-12. The trademark line is in
+// Footer.astro, on every page.
+import { SITE } from "../consts";
+---
+
+<a href={SITE.playStore} class="inline-flex shrink-0" aria-label="Get Kuyun on Google Play">
+  <img
+    src="/google-play-badge.png"
+    alt="Get it on Google Play"
+    width="564"
+    height="168"
+    class="h-11 w-auto"
+  />
+</a>
