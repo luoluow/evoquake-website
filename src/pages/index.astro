@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
+import PlayBadge from "../components/PlayBadge.astro";
 import { SITE, kuyunCollection } from "../consts";
 import { demoVideo } from "../schema";
 
@@ -78,6 +79,7 @@ const layers = [
       <a href={SITE.kuyunSignup} class="btn-primary">Try Kuyun free</a>
       <a href="/product" class="btn-ghost">What it does</a>
       <a href={SITE.kuyunDemo} class="btn-ghost">Watch the one-minute demo</a>
+      <PlayBadge />
     </div>
 
     <dl class="mt-16 grid gap-px overflow-hidden rounded-xl border border-(--color-border) bg-(--color-border) sm:grid-cols-3">
@@ -155,6 +157,7 @@ const layers = [
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
         <a href={SITE.kuyunUrl} class="btn-primary">Open Kuyun</a>
+        <PlayBadge />
         <a href="/about" class="btn-ghost">Why EvoQuake</a>
         <a href={`mailto:${SITE.email}`} class="btn-ghost">Work with us</a>
       </div>

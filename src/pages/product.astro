@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/Section.astro";
+import PlayBadge from "../components/PlayBadge.astro";
 import { SITE, kuyunCollection } from "../consts";
 import { demoVideo, kuyunApp } from "../schema";
 
@@ -70,6 +71,7 @@ const trust = [
     <div class="mt-9 flex flex-wrap gap-3">
       <a href={SITE.kuyunSignup} class="btn-primary">Try it free</a>
       <a href={SITE.kuyunDemo} class="btn-ghost">Watch the one-minute demo</a>
+      <PlayBadge />
     </div>
   </section>
 
