@@ -23,7 +23,7 @@ There is no test suite or linter configured. `npm run build` is the de-facto che
 
 ## Architecture & conventions
 
-- **Content lives in `src/consts.ts`** — site name, email (`luo@evoquake.com`), tagline, the `KUYUN` object (product name/URLs/beta status), and the `NAV` array. Change nav links and global copy here, not in individual components.
+- **Content lives in `src/consts.ts`** — site name, email (`support@evoquake.com`), tagline, the `KUYUN` object (product name/URLs/beta status), and the `NAV` array. Change nav links and global copy here, not in individual components.
 - **`src/layouts/Layout.astro`** is the single page shell: `<head>` meta/OG tags, fonts, `Header`, `Footer`, and a `<slot>`. Every page wraps its content in `<Layout title=... description=...>`.
 - **`src/components/Section.astro`** is the standard content block (eyebrow + title + lead + slot). Reuse it for page sections to keep spacing/typography consistent.
 - **Design tokens are CSS variables** defined in `src/styles/global.css` under `@theme` (colors like `--color-bg`, `--color-accent`, fonts). Reusable component classes (`.btn-primary`, `.btn-ghost`, `.card`, `.eyebrow`, `.container-x`) are defined in the same file under `@layer components`. Re-theme the whole site by editing the tokens.
