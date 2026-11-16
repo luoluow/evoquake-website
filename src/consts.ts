@@ -2,7 +2,7 @@
 export const SITE = {
   name: "EvoQuake",
   legalName: "EvoQuake CO.",
-  email: "luo@evoquake.com",
+  email: "support@evoquake.com",
   tagline: "Frontier AI for everyone — Kuyun AI, by EvoQuake.",
   description:
     "EvoQuake builds Kuyun AI: a personal AI that makes courses with a study partner, books read aloud, libraries with a librarian and morning briefings — works while you are away, shows its work, and has a free allowance every day.",
